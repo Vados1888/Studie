@@ -1,3 +1,36 @@
+
+
+
+/* TASK 2.3
+
+let stars;
+let spaces;
+let row = 6;
+
+
+function tree(star, space) {
+    
+    for (let i = 0; i < row; i++) {
+        
+        let result = '';
+        stars = i;
+    
+            for(let j = 0; j < stars; j++){
+                result += star;
+            }
+                spaces = row - i;
+            for(let k = 0; k < spaces; k++) {
+                result += space;
+            }
+        console.log(result);    
+    
+    }
+}
+
+tree('*', ' ');
+*/
+
+
 /*TASK 2.6
 
 let date = new Date();
@@ -15,6 +48,32 @@ if (hour > 0 && hour < 5 ) {
     say = 'Добрый вечер';
 }
 console.log(say);
+*/
+
+
+/* TASK 2.7
+
+
+let num = 55;
+
+if (num === 11) {
+    console.log(`На ветке сидит ${num} ворон`);
+} else if(num % 10 === 1) {
+    console.log(`На ветке сидит ${num} ворона`);
+} else {
+    switch (num) {
+        case 2:
+            console.log(`На ветке сидит ${num} вороны`);
+            break;
+        case 3:
+            console.log(`На ветке сидит ${num} вороны`);    
+            break;
+        case 4:
+            console.log(`На ветке сидит ${num} вороны`);    
+        default:
+            console.log(`На ветке сидит ${num} ворон`);
+    }
+}
 */
 
 
@@ -53,6 +112,28 @@ printRow(' ', '*');
 */
 
 
+/* TASK 3.2
+const pow = function (x, p) {
+
+    let result = x;
+
+    if (p === 1) {
+        result = x;
+    } else if (typeof p === 'string') {
+        result = x;
+    } else {
+        for (let i = 1; i <= p; i++) {
+            result = result * x;
+        }
+    }
+
+    console.log(result);
+    
+    return result;
+}
+*/
+
+
 /* TASK 3.3
 
 function compare(x) {
@@ -71,44 +152,94 @@ console.log(compare());
 */
 
 
+/*TASK 3.4
+
+function powFunc(x, p) {
+    
+    if(x === 1 || p === 1) return x;
+    if(p < 0) return 'Input positiv number';
+
+    return x * powFunc(x, --p);
+
+}
+console.log(powFunc(5, 1));
+
+*/
+
+
 /* TASK 3.5
 
-let cars = "car";
-let buses = "bus";
-const ROWS = 3;
-let result = '';
+
+function drawItems(name1, quantyty1, name2, quantyty2, rows, itemsInRow) {
+    let id = 0;
+    let count = rows * itemsInRow;
+    let numInRows = 0;
+    let result = '';
 
 
-let i = 0;
-    while (i < 1) {
-        i++;
-        for(let c = 1; c <= 4; c++) {
-            result += cars;
+    while(id < count) {
+        for(let i = 0; i < quantyty1; i++) {
+            if (id < count) {
+            result += name1;
+            id++;
+            setWhiteSpace();
+            }
         }
-
-        for(let b = 1; b <= 3; b++) {
-            result +=buses;
+        for(let i = 0; i < quantyty2; i++) {
+            if (id < count) {
+            result += name2;
+            id++;
+            setWhiteSpace();
+            }
         }
-       
-        console.log(result);
     }
+
+    console.log(result);
+
+    function setWhiteSpace() {
+        numInRows++;
+        if(numInRows == itemsInRow) {
+            result += "\n";
+            numInRows = 0;
+        } else {
+            result += "\t"
+        }
+        
+    }
+
+}
+
+drawItems("car", 4 ,"bus", 3, 5, 8);
 */
 
 
 /*TASK 3.6
 
-printNumbers(nums, cols) {
-    let rows = 4;
-    let row;
+function printNumbers(nums, cols) {
+    
     let result = '';
+    const rows = nums / cols;
 
-    for (let i = 1; i <= col; i++) {
-        row = i + 4;
+    for (let i = 1; i <= rows; i++) {
+        
+        result = '';
 
-        rsult += row;
+        if(nums % cols === 0) {
+            for(let el = 0; el < cols; el++) {
+                result += el * rows + i;
+            }
+        } else {
+            for(let el = 0; el < cols; el++) {
+                result += el * rows.toFixed() + i;
+            }
+        }
+        console.log(result);
     }
 
 }
+
+printNumbers(13, 3)
+
 */
 
 
@@ -162,3 +293,72 @@ console.log(product1.show());
 console.log(product2.show());
 
 */
+
+
+/* TASK 4.3
+
+let fibsArr = [1, 1];
+let result;
+let N = 10;
+for (let i = 0; i < N; i++) {
+console.log(fibsArr[0]);
+
+    result = fibsArr[0 + i] + fibsArr[1 + i];
+    fibsArr.push(result);
+
+}
+
+console.log(fibsArr);
+*/
+
+let num = 1;
+
+
+function showMass(name) {
+    if (num < 4) {
+    setTimeout(showMass, 1000, 'SourceIt');
+    ++num;
+    }    
+    console.log(`${name}, Hi there!`);
+    
+
+}
+
+// setTimeout(showMass, 1000, 'Vados');
+
+function showMass(name) {
+   let timeId = setTimeout(showMass, 1000, 'SourceIt');
+    
+    if (num == 5) {
+        clearTimeout(timeId);
+    }
+    console.log(`${name}, Hi there!`);
+    ++num;
+    
+
+}
+
+// setTimeout(showMass, 1000, 'Vados');
+
+const userCridential = {
+    name: 'Vadym',
+    age: 38,
+    'It speciality': "WEB Developer ",
+} 
+
+for (const key in userCridential) {
+    // console.log(userCridential[key]);
+}
+// console.log(userCridential['It speciality'] );
+userCridential.name = 'Julia';
+userCridential.age = 33;
+// console.log(userCridential);
+
+// delete userCridential.age;
+// console.log(userCridential);
+
+const userNew = Object.assign({}, userCridential);
+delete userNew.age
+console.log(userNew);
+let keys = Object.keys(userCridential["It speciality"]);
+console.log(keys);
