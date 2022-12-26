@@ -172,21 +172,21 @@ console.log(powFunc(5, 1));
 
 function drawItems(name1, quantyty1, name2, quantyty2, rows, itemsInRow) {
     let id = 0;
-    let count = rows * itemsInRow;
+    let result = rows * itemsInRow;
     let numInRows = 0;
     let result = '';
 
 
-    while(id < count) {
+    while(id < result) {
         for(let i = 0; i < quantyty1; i++) {
-            if (id < count) {
+            if (id < result) {
             result += name1;
             id++;
             setWhiteSpace();
             }
         }
         for(let i = 0; i < quantyty2; i++) {
-            if (id < count) {
+            if (id < result) {
             result += name2;
             id++;
             setWhiteSpace();
@@ -301,7 +301,6 @@ let fibsArr = [1, 1];
 let result;
 let N = 10;
 for (let i = 0; i < N; i++) {
-console.log(fibsArr[0]);
 
     result = fibsArr[0 + i] + fibsArr[1 + i];
     fibsArr.push(result);
@@ -311,54 +310,59 @@ console.log(fibsArr[0]);
 console.log(fibsArr);
 */
 
-let num = 1;
+
+/* TASK 4.4
 
 
-function showMass(name) {
-    if (num < 4) {
-    setTimeout(showMass, 1000, 'SourceIt');
-    ++num;
-    }    
-    console.log(`${name}, Hi there!`);
-    
+let x = [3, 10];
+let y = [];
+x[77] = 7;
 
+for (let i = 0; i < x.length; i++) {
+    y.push(x[i] * x[i]);
+}
+console.log(y);
+
+
+
+for (let key in x) {
+    y.push(x[key] * x[key]);
+}
+console.log(y);
+
+
+for (let it of x) {
+    console.log(it);
+    y.push(it * it);
 }
 
-// setTimeout(showMass, 1000, 'Vados');
+console.log(y);
+*/
 
-function showMass(name) {
-   let timeId = setTimeout(showMass, 1000, 'SourceIt');
-    
-    if (num == 5) {
-        clearTimeout(timeId);
-    }
-    console.log(`${name}, Hi there!`);
-    ++num;
-    
 
+/* TASK 5.1
+
+var s = 'Мы знаем, что монохромный цвет - это градация серого';
+var txt = 'хром';
+var word;
+
+word = s.substring(s.indexOf(txt), s.indexOf(txt) + 4);
+console.log(word);
+
+*/
+
+
+/*TASK 5.2
+
+function substrCount(input, needle, offset, length) {
+
+    let strPart = input.slice(offset, length);
+    let result = strPart.toLowerCase().split(needle.toLowerCase()).length - 1;
+    console.log(result);
+    return result;
 }
+substrCount('Good Golly Miss Molly', 'll', 7, 25);
 
-// setTimeout(showMass, 1000, 'Vados');
+*/
 
-const userCridential = {
-    name: 'Vadym',
-    age: 38,
-    'It speciality': "WEB Developer ",
-} 
 
-for (const key in userCridential) {
-    // console.log(userCridential[key]);
-}
-// console.log(userCridential['It speciality'] );
-userCridential.name = 'Julia';
-userCridential.age = 33;
-// console.log(userCridential);
-
-// delete userCridential.age;
-// console.log(userCridential);
-
-const userNew = Object.assign({}, userCridential);
-delete userNew.age
-console.log(userNew);
-let keys = Object.keys(userCridential["It speciality"]);
-console.log(keys);
